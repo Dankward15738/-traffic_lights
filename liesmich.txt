@@ -1,0 +1,3 @@
+In diesem Projekt wird über einem i2c-Bus eine Ampel gesteuert. Sie kann zu Beispiel genutzt werden, um  die mit dem BME280 gemessene Feuchtigkeit zu beurteilen. 
+Um die Ampel von der Messstation zu trennen, nutze ich den i2c-Bus, weil dann nur 4 Leitungen gebraucht werden. Außerdem kann ich mit dem gleichen Bus, die Messung durchführen und über eine OLED und über die Ample das Ergebnis anzeigen.
+Der Baustein pcf8574 gibt ein Byte, das über den i2c-Bus gesendet wird parallel über die 8 Ports 0-7 aus. Die Ports sind als Opencollektor geschaltet. Daher müssen sie mit VCC über einen 4K7-Widerstand verbunden werden, damit bei dem 1-Zustand ein positives Signal zu erkennen ist.
