@@ -37,7 +37,6 @@
 # ## Bit 6 is HIGH
 # mypcf.resetbit(6)
 # ## Bit 6 is now LOW
-i
 class PCF8574():
     def __init__(self,address,i2c):
         self.address = address
