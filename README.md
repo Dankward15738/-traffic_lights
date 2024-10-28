@@ -10,4 +10,4 @@ The pcf8574 component outputs a byte that is sent over the i2c bus in parallel o
 The CD4050 is needed to ensure that enough current flows at HIGH.
 
 The two modules pcf8574 and ampel belong together. ampel only works with this version of pcf8574. The two modules were developed on an ESP32 with the help of Thonny, they should also work on the ESP8266.
-I tested them on the Raspberry pi pico.
+I tested them on the Raspberry pi pico and Raspberry pi+
