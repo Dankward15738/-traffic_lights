@@ -1,9 +1,9 @@
 #
-# MicroPython pcf8574 and pcf8574A I2C interface
+# MicroPython pcf8574 and pcf8574A I2C interface (Micropython and Python3)
 #
 # The MIT License (MIT)
 #
-# 2024  Dankward Nuerenberg
+# 2024  Dankward Nuerenberg Vers. 0.8
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -57,7 +57,10 @@ class PCF8574():
         self.aktualisiereStatus()
     
     def getbit(self,bit):
-        datainput = self.i2c.readfrom(self.address,1)
+        try:
+            datainput = self.i2c.readfrom(self.address,1) # Micropython
+        except:
+            datainput = self.i2c.read_byte(self.address) # Python Raspberry pi
         zahl = 0b00000001 << bit
         if zahl & datainput > 0:
             ausgabe = 1
@@ -69,5 +72,8 @@ class PCF8574():
     def aktualisiereStatus(self):
        
         self.temp[0] = self.status
-        self.i2c.writeto(self.address,self.temp)
+        try:
+            self.i2c.writeto(self.address,self.temp) #Micropython
+        except:
+            self.i2c.write_byte(self.address,self.temp[0]) #python3 Raspberry pi
         
